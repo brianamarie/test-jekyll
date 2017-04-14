@@ -6,12 +6,15 @@
     <h5 style="text-decoration: underline"><code>before_install</code> TL;DR</h5>
       <p>These are steps you want completed before the environment is installed on Travis' container. <strong>Optional.</strong>
     <h5 style="text-decoration: underline">What is <code>before_install</code>?</h5>
-      <p>text about what this is</p>
-      <p>For more information on language, see <a href="https://docs.travis-ci.com/user/getting-started/">the detailed documentation</a>.
+      <p>In this step, you set up dependencies that are prerequisites for the installation.
+      <br><br>
+      For more information on language, see <a href="https://docs.travis-ci.com/user/installing-dependencies/">the detailed documentation</a>.
     <h5 style="text-decoration: underline">When is <code>before_install</code> necessary?</h5>
-      <p>text about when to use this</p>
+      <p>One example of when you'd want to use <code>before_install</code> is if you needed some Ubuntu packages hat were not included in the default standard for Travis.</p>
     <h5 style="text-decoration: underline"><code>before_install</code> examples</h5>
       <pre><code>
-      language: ruby
+        before_install:
+          - sudo apt-get -qq update
+          - sudo apt-get install -y libxml2-dev
       </pre></code>
 </li>
