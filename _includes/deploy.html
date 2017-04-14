@@ -1,18 +1,27 @@
 <li>
   <div class="collapsible-header"><i class="mdi-toggle-star-outline"></i>
-    <h5><code>deploy</code></h5> <em>(Optional)</em>
+    <h5><code>deploy</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>deploy</code> TL;DR</h5>
+      <p>Deploy code that passes the tests straight to production.</p>
+    <h5 style="text-decoration: underline">What is <code>deploy</code>?</h5>
+      <p><code>deploy</code> is used to deploy your build via travis-supported deployment providers.
+      <br><br>
+      For a list of deployment providers that supported by Travis-CI, <a href="https://docs.travis-ci.com/user/deployment/">check out the official documentation</a>.</p>
+    <h5 style="text-decoration: underline">When is <code>deploy</code> necessary?</h5>
+      <p>You'd use this step if you are using one of the <a href="https://docs.travis-ci.com/user/deployment/">supported deployment providers</a>.</p>
+    <h5 style="text-decoration: underline"><code>deploy</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        deploy:
+          provider: releases
+          api_key:
+            secure: securekeyhere
+          file: myrepo-$TRAVIS_BRANCH.tar.gz
+          on:
+            condition: $PRODBUILDCOMPLETE = true
+            repo: myname/myrepo
+            all_branches: true
+            tags: true
       </pre></code>
 </li>
