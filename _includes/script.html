@@ -3,16 +3,18 @@
     <h5><code>script</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>script</code> TL;DR</h5>
+      <p>Here, Travis runs the test script. By default, Travis runs the default tests for the set language. <strong>Optional</strong>.</p>
+    <h5 style="text-decoration: underline">What is <code>script</code>?</h5>
+      <p>By default, Travis will just run the associated default tests for the language. In a node app, it would run <code>npm test</code>.
+      <br><br>
+      You can change this behavior by adding a <code>script</code> step.
+    <h5 style="text-decoration: underline">When is <code>script</code> necessary?</h5>
+      <p>Use <code>script</code> when you want scripts to be run that aren't necessarily default to the language, but you want Travis to fail if they exit with a non-zero code.</p>
+    <h5 style="text-decoration: underline"><code>script</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        script:
+          - bundle exec rake build
+          - bundle exec rake builddoc
       </pre></code>
 </li>
