@@ -9,9 +9,9 @@
       <p>These scripts will run based on if the main scripts pass or fail. If the scripts within <code>after_success</code> or <code>after_failure</code> fail, the build is unaffected.
       <br><br>
       For more information on <code>after_success</code> and <code>after_failure</code>, see <a href="https://docs.travis-ci.com/user/customizing-the-build/#Breaking-the-Build">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>after_success</code> necessary?</h5>
+    <h5 style="text-decoration: underline">When are <code>after_success</code> and <code>after_failure</code> necessary?</h5>
       <p>If you’re using a git push to deploy your repo to a server, you want to do it in the after_success portion.</p>
-    <h5 style="text-decoration: underline"><code>after_success</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>after_success</code> and <code>after_failure</code> examples</h5>
       <pre><code>
         after_success:
           - test $TRAVIS_PULL_REQUEST = false \
