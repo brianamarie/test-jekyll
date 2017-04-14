@@ -4,7 +4,7 @@
   </div>
   <div class="collapsible-body">
     <h5 style="text-decoration: underline"><code>before_deploy</code> TL;DR</h5>
-      <p>You can run steps before a deploy by using the <code>before_deploy</code> phase. A non-zero exit code in this command will mark the build as errored.</p>
+      <p>You can run steps before a deploy by using the <code>before_deploy</code> phase. A non-zero exit code in this command will mark the build as errored. <strong>Optional.</strong></p>
     <h5 style="text-decoration: underline">What is <code>before_deploy</code>?</h5>
       <p>The <code>before_deploy</code> can be used to prepare your deployment, if need be.
         If you want to make sure that this only runs if your build was successful, you can check the <code>$TRAVIS_TEST_RESULT</code> environment variable.
