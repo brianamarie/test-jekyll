@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<li>
+  <div class="collapsible-header"><i class="mdi-navigation-chevron-right"></i>
+    <h5><code>{{ post.title }}</code></h5>
+  </div>
+  <div class="collapsible-body">
+    <h5 style="text-decoration: underline"><code>{{ post.title }}</code> TL;DR</h5>
+      {{ post.tldr }}
+    <h5 style="text-decoration: underline">What is <code>{{ post.title }}</code>?</h5>
+      {{ post.what }}
+    <h5 style="text-decoration: underline">When is <code>{{ post.title }}</code> necessary?</h5>
+      {{ post.when }}
+    <h5 style="text-decoration: underline"><code>{{ post.title }}</code> examples</h5>
+      {{ post.example }}
+  </div>
+</li>
