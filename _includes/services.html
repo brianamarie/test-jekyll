@@ -3,16 +3,21 @@
     <h5><code>services</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>services</code> TL;DR</h5>
+      <p>Some external services, like databases, won't start by default. Use <code>services</code> to change that. <strong>Optional</strong>.
+    <h5 style="text-decoration: underline">What are <code>services</code>?</h5>
+      <p>Travis CI environments do not start services by default, to make more RAM available to build scripts. Start services by adding them to the <code>services:</code> section of your <code>.travis.yml</code>.
+      <br><br>
+      Some examples of services are MYSQL, MongoDB, and ElasticSearch.
+      <br><br>
+      For more information on services, see <a href="https://docs.travis-ci.com/user/database-setup/">the detailed documentation</a>.
+    <h5 style="text-decoration: underline">When are <code>services</code> necessary?</h5>
+      <p>You'd want to use this section in your <code>travis.yml</code> file if have services integrated with your code that require testing.</p>
+    <h5 style="text-decoration: underline"><code>services</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        services:
+          - riak
+          - rabbitmq
+          - memcached
       </pre></code>
 </li>
