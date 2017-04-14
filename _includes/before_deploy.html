@@ -1,18 +1,23 @@
 <li>
   <div class="collapsible-header"><i class="mdi-toggle-star-outline"></i>
-    <h5><code>before_deploy</code></h5> <em>(Optional)</em>
+    <h5><code>before_deploy</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>before_deploy</code> TL;DR</h5>
+      <p>You can run steps before a deploy by using the <code>before_deploy</code> phase. A non-zero exit code in this command will mark the build as errored.</p>
+    <h5 style="text-decoration: underline">What is <code>before_deploy</code>?</h5>
+      <p>The <code>before_deploy</code> can be used to prepare your deployment, if need be.
+        If you want to make sure that this only runs if your build was successful, you can check the <code>$TRAVIS_TEST_RESULT</code> environment variable.
+    <h5 style="text-decoration: underline">When is <code>before_deploy</code> necessary?</h5>
+      <p>Use <code>before_deploy</code> if there is specific steps that need to be completed before it's okay to deploy, but those steps don't belong in the earlier <code>script</code> portions.</p>
+    <h5 style="text-decoration: underline"><code>before_deploy</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+      before_deploy:
+        - test $TRAVIS_TEST_RESULT = 0 \# check that build passed successfully
+          && gulp build \
+          && cd dist \
+          && npm install --prod \
+          && cd $TRAVIS_BUILD_DIR \
+          && tar -zcvf amber-storm-$TRAVIS_BRANCH.tar.gz dist
       </pre></code>
 </li>
