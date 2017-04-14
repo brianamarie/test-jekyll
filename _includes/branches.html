@@ -3,16 +3,26 @@
     <h5><code>branches</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>branches</code> TL;DR</h5>
+      <p>You can specify certain branches to <em>always</em> test or <em>never</em> test. <strong>Optional</strong>.
+    <h5 style="text-decoration: underline">What are <code>branches</code>?</h5>
+      <p>Travis CI uses the <code>.travis.yml</code> file from the branch containing the git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
+      <br><br>
+      For more information on branches, see <a href="https://docs.travis-ci.com/user/customizing-the-build#Building-Specific-Branches">the detailed documentation</a>.
+    <h5 style="text-decoration: underline">When are <code>branches</code> necessary?</h5>
+      <p>You'd want to use this section in your <code>travis.yml</code> file if you want to be specific. Maybe you have code on other branches that you want to skip over, or maybe you always want to test the deployment branch just so it's being tested more frequently.</p>
+    <h5 style="text-decoration: underline"><code>branches</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        # blocklist
+        branches:
+          except:
+          - legacy
+          - experimental
+
+        # safelist
+        branches:
+          only:
+          - master
+          - stable
       </pre></code>
 </li>
