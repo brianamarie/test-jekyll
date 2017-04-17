@@ -25,7 +25,29 @@
         accordion: false
       });
     }
+
+    function toggleRequired() {
+      $(".required").toggleClass("inactive");
+      $(".star").toggle();
+    }
+
+    function toggleCommon() {
+      $(".common").toggleClass("inactive");
+      $(".star-half").toggle();
+    }
+
+    function toggleUncommon() {
+      $(".uncommon").toggleClass("inactive");
+      $(".star-outline").toggle();
+    }
+
   </script>
+  <style type="text/css">
+    .inactive {
+      color: grey;
+      font-style: italic;
+    }
+    </style>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 </head>
@@ -36,12 +58,19 @@
   <div class="container">
     <br />
     <br />
-    <div class="collapsible-header"><i class="mdi-toggle-star"></i>
-      <p> = Required</p>
-      <i class="mdi-toggle-star-half"></i>
-      <p> = Common</p>
-      <i class="mdi-toggle-star-outline"></i>
-      <p> = Uncommon</p>
+    <div class="collapsible-header">
+      <div class="required" onClick="toggleRequired();">
+        <i class="mdi-toggle-star"></i>
+        <p> = Required</p>
+      </div>
+      <div class="common" onClick="toggleCommon();">
+        <i class="mdi-toggle-star-half"></i>
+        <p> = Common</p>
+      </div>
+      <div class="uncommon" onClick="toggleUncommon();">
+        <i class="mdi-toggle-star-outline"></i>
+        <p> = Uncommon</p>
+      </div>
     </div>
     <br><br>
     <!--
