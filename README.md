@@ -1,7 +1,7 @@
 ## Visualizing Config Files
 
 #### TL;DR:
-There's no easy way to learn what can go into a `travis.yml` file. This tool aims to clear that up. It is rendered at [brianamarie.github.io/test-jekyll](brianamarie.github.io/test-jekyll) and is a *work in progress*. 
+There's no easy way to learn what can go into a `travis.yml` file. This tool aims to clear that up. It is rendered at [brianamarie.github.io/test-jekyll](https://brianamarie.github.io/test-jekyll) and is a *work in progress*. 
 
 #### How it works:
 - The dropdown menu features every possible field in a `travis.yml` file, along with brief descriptions and examples for each.
