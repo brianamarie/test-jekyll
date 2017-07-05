@@ -1,5 +1,7 @@
 ## Visualizing Config Files
 
+# DEPRECATED: Please visit https://githubtraining.github.io/travis-ci/ for most up to date version
+
 #### TL;DR:
 There's no easy way to learn what can go into a `travis.yml` file. This tool aims to clear that up. It is rendered at [brianamarie.github.io/test-jekyll](brianamarie.github.io/test-jekyll) and is a *work in progress*. 
 
