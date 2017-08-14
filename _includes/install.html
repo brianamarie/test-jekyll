@@ -3,16 +3,19 @@
     <h5><code>install</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>install</code> TL;DR</h5>
+      <p>This block installs dependencies of your build, like <code>bundle install</code> or <code>npm install</code>. <strong>Required.</strong></p>
+    <h5 style="text-decoration: underline">What is <code>install</code>?</h5>
+      <p>The default dependency installation commands depend on the project language. For instance, Java builds either use Maven or Gradle, depending on which build file is present in the repository. Ruby projects use Bundler when a Gemfile is present in the repository.
+      <br><br>
+      You can specify your own script to run to install whatever dependencies your project requires in <code>.travis.yml</code>.
+      <br><br>
+      For more information on the installation step, see <a href="https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step">the detailed documentation</a>.
+    <h5 style="text-decoration: underline">When is <code>install</code> necessary?</h5>
+      <p>???????</p>
+    <h5 style="text-decoration: underline"><code>install</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
-      </pre></code>
+        install:
+          - bundle install --path vendor/bundle
+          - npm install
 </li>
