@@ -25,7 +25,29 @@
         accordion: false
       });
     }
+
+    function toggleRequired() {
+      $(".required").toggleClass("inactive");
+      $(".star").toggle();
+    }
+
+    function toggleCommon() {
+      $(".common").toggleClass("inactive");
+      $(".star-half").toggle();
+    }
+
+    function toggleUncommon() {
+      $(".uncommon").toggleClass("inactive");
+      $(".star-outline").toggle();
+    }
+
   </script>
+  <style type="text/css">
+    .inactive {
+      color: grey;
+      font-style: italic;
+    }
+    </style>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 </head>
@@ -36,13 +58,32 @@
   <div class="container">
     <br />
     <br />
+    <div class="collapsible-header">
+      <div class="required" onClick="toggleRequired();">
+        <i class="mdi-toggle-star"></i>
+        <p> = Required</p>
+      </div>
+      <div class="common" onClick="toggleCommon();">
+        <i class="mdi-toggle-star-half"></i>
+        <p> = Common</p>
+      </div>
+      <div class="uncommon" onClick="toggleUncommon();">
+        <i class="mdi-toggle-star-outline"></i>
+        <p> = Uncommon</p>
+      </div>
+    </div>
+    <br><br>
+    <!--
     <a class="waves-effect waves-light btn" onClick="expandAll();"><i class="material-icons left">fullscreen</i>Expand All</a>
     <a class="waves-effect waves-light btn" onClick="collapseAll();"><i class="material-icons left">fullscreen_exit</i>Collapse All</a>
     <br />
-    <br />
+    <br />-->
+    <h1> DEPRECATED: Please visit https://githubtraining.github.io/travis-ci/ for most updated version. </h1>
+    <h2>Travis.yml configuration options</h2>
     <ul class="collapsible" data-collapsible="expandable">
       {% include notifications.html %}
       {% include language.html %}
+      {% include env.html %}
       {% include branches.html %}
       {% include services.html %}
       {% include addons.html %}
@@ -53,11 +94,10 @@
       {% include script.html %}
       {% include before_cache.html %}
       {% include after_success.html %}
-      {% include after_failure.html %}
+      {% include after_script.html %}
       {% include before_deploy.html %}
       {% include deploy.html %}
       {% include after_deploy.html %}
-      {% include after_script.html %}
     </ul>
 
   </div>

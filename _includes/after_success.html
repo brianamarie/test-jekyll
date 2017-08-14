@@ -1,18 +1,20 @@
-<li>
+<li class="star-outline">
   <div class="collapsible-header"><i class="mdi-toggle-star-outline"></i>
-    <h5><code>after_success</code> or <code>after_failure</code></h5>
+    <h5><code>after_success</code> and <code>after_failure</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>after_success</code> and <code>after_failure</code> TL;DR</h5>
+      <p>These scripts are run after the main script, and depend on the outcome. <strong>Optional</strong>.</p>
+    <h5 style="text-decoration: underline">What are <code>after_success</code> and <code>after_failure</code>?</h5>
+      <p>These scripts will run based on if the main scripts pass or fail. If the scripts within <code>after_success</code> or <code>after_failure</code> fail, the build is unaffected.
+      <br><br>
+      For more information on <code>after_success</code> and <code>after_failure</code>, see <a href="https://docs.travis-ci.com/user/customizing-the-build/#Breaking-the-Build">the detailed documentation</a>.
+    <h5 style="text-decoration: underline">When are <code>after_success</code> and <code>after_failure</code> necessary?</h5>
+      <p>If you’re using a git push to deploy your repo to a server, you want to do it in the after_success portion.</p>
+    <h5 style="text-decoration: underline"><code>after_success</code> and <code>after_failure</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        after_success:
+          - test $TRAVIS_PULL_REQUEST = false \
+            && git push
       </pre></code>
 </li>

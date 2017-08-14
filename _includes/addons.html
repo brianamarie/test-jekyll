@@ -1,18 +1,22 @@
-<li>
+<li class="star-outline">
   <div class="collapsible-header"><i class="mdi-toggle-star-outline"></i>
     <h5 id="_optional_installaddons"><code>addons</code></h5>
   </div>
   <div class="collapsible-body">
     <h5 style="text-decoration: underline"><code>addons</code> TL;DR</h5>
-      <p>Include 'addons' that are dependencies for your project. <strong>Optional.</strong>
+      <p>Include 'APT addons' that are dependencies for your project. <strong>Optional.</strong>
     <h5 style="text-decoration: underline">What are <code>addons</code>?</h5>
-      <p>text about what this is</p>
-      <p>For more information on language, see <a href="https://docs.travis-ci.com/user/getting-started/">the detailed documentation</a>.
+      <p>APT addons are a specific type of dependency package. They wouldn't be addressed in the other stages, but can be specifically taken care of here.</p>
+      <p>For more information on <code>addons</code>, see <a href="https://docs.travis-ci.com/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon">the detailed documentation</a>.
     <h5 style="text-decoration: underline">When are <code>addons</code> necessary?</h5>
-      <p>text about when to use this</p>
+      <p>Use <code>addons</code> if you need to use APT addons.</p>
     <h5 style="text-decoration: underline"><code>addons</code> examples</h5>
       <pre><code>
-      language: ruby
+        addons:
+          apt:
+            packages:
+            - cmake
+            - time
       </pre></code>
   </div>
 </li>

@@ -1,18 +1,17 @@
-<li>
-  <div class="collapsible-header"><i class="mdi-toggle-star-outline"></i>
+<li class="star-half">
+  <div class="collapsible-header"><i class="mdi-toggle-star-half"></i>
     <h5><code>before_script</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>before_script</code> TL;DR</h5>
+      <p>This block is used to further set up your environment before you run your script. <strong>Optional</strong>.</p>
+    <h5 style="text-decoration: underline">What is <code>before_script</code>?</h5>
+      <p>This is where you can specify steps to be run that aren't necessarily associated with the installation, but aren't necessarily a part of the script either. This optional segment gives you more granular control over how and when things happen.</p>
+    <h5 style="text-decoration: underline">When is <code>before_script</code> necessary?</h5>
+      <p>If you need to copy files, start your database, or declare environment variables, do that in the <code>before_script</code> section.</p>
+    <h5 style="text-decoration: underline"><code>before_script</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        before_script:
+          - bower install
       </pre></code>
 </li>

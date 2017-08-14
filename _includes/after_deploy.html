@@ -1,18 +1,17 @@
-<li>
+<li class="star-outline">
   <div class="collapsible-header"><i class="mdi-toggle-star-outline"></i>
-    <h5><code>after_deploy</code></h5> <em>(Optional)</em>
+    <h5><code>after_deploy</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>after_deploy</code> TL;DR</h5>
+      <p>If there are any steps you’d like to run after the deployment, you can use the <code>after_deploy</code> phase. <strong>Optional</strong>.</p>
+    <h5 style="text-decoration: underline">What is <code>after_deploy</code>?</h5>
+      <p>The <code>after_deploy</code> block rus after the Travis deploy block has run. Note that in the case of GitHub releases, our code technically hasn’t deployed to the server yet (it’s just been uploaded to the releases page), so we can tell our server to download that release here.</p>
+    <h5 style="text-decoration: underline">When is <code>after_deploy</code> necessary?</h5>
+      <p>If you have code you want to run after the deployment has taken place, and it's outside the parameters of what can be done in the <code>deploy</code> step.</p>
+    <h5 style="text-decoration: underline"><code>after_deploy</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        after_deploy:
+          - ssh git@website.org "./deploy.sh $TRAVIS_BRANCH"
       </pre></code>
 </li>

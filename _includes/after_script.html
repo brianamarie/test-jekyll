@@ -1,18 +1,17 @@
-<li>
+<li class="star-outline">
   <div class="collapsible-header"><i class="mdi-toggle-star-outline"></i>
     <h5><code>after_script</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>after_script</code> TL;DR</h5>
+      <p>Script that runs after the rest of the script process is complete.</p>
+    <h5 style="text-decoration: underline">What is <code>after_script</code>?</h5>
+      <p>Just like the other <code>script</code> steps, this will run scripts. The difference is that these scripts will wait to run until the other steps are complete, and if scripts in <code>after_script</code> fail, your build will not be affected.</p>
+    <h5 style="text-decoration: underline">When is <code>after_script</code> necessary?</h5>
+      <p>You would use the <code>after_script</code> block if there was code you wanted to run after every build regardless of success or failure, and you didn't want its failure to affect the build.</p>
+    <h5 style="text-decoration: underline"><code>after_script</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        after_script:
+          - build_something_important
       </pre></code>
 </li>

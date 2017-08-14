@@ -1,18 +1,21 @@
-<li>
+<li class="star-outline">
   <div class="collapsible-header"><i class="mdi-toggle-star-outline"></i>
-    <h5><code>before_cache</code> <em>(Optional, for cleaning up cache)</em></h5>
+    <h5><code>before_cache</code></h5>
   </div>
   <div class="collapsible-body">
-    <h5 style="text-decoration: underline">What is <code>cache</code>?</h5>
-      <p>Explanation of WHAT</p>
-      <p>For more information on caching, see <a href="https://docs.travis-ci.com/user/caching">the detailed documentation</a>.
-    <h5 style="text-decoration: underline">When is <code>cache</code> necessary?</h5>
-      <p>text text text</p>
-    <h5 style="text-decoration: underline"><code>cache</code> examples</h5>
+    <h5 style="text-decoration: underline"><code>before_cache</code> TL;DR</h5>
+      <p>When using caches, it may be useful to run a command just before uploading the new cache archive. <strong>Optional</strong>.</p>
+    <h5 style="text-decoration: underline">What is <code>before_cache</code>?</h5>
+      <p>If you are using caches, and have defined this earlier in  your <code>travis.yml</code> file, you can use <code>before_cache</code> to run commands before the cache is actually stored. This gives you more granular control over what information is kept in your cache.
+      <br><br>
+      It might seem funny to put this step so late in the game, but this is the point in the build when the cache would be created.
+      <br><br>
+      Failure in this phase does not mark the job as failed. For more information on <code>before_cache</code>, see <a href="https://docs.travis-ci.com/user/caching#before_cache-phase">the detailed documentation</a>.
+    <h5 style="text-decoration: underline">When is <code>before_cache</code> necessary?</h5>
+      <p>The dependency management utility may write log files into the directory you are caching and you do not want them to affect the cache. Use the <code>before_cache</code> phase to delete the log files.</p>
+    <h5 style="text-decoration: underline"><code>before_before_cache</code> examples</h5>
       <pre><code>
-      cache:
-        bundler: true
-        directories:
-          - node_modules # NPM packages
+        before_cache:
+          - rm -f $HOME/.cache/pip/log/debug.log
       </pre></code>
 </li>
